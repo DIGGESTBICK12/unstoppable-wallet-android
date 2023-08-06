@@ -27,8 +27,8 @@ class TronExternalContractCallTransactionRecord(
             val (incomingValues, outgoingValues) = EvmTransactionRecord.combined(incomingEvents, outgoingEvents)
 
             return when {
-                (incomingValues.isEmpty() && outgoingValues.size == 1) -> outgoingValues.first()
-                (incomingValues.size == 1 && outgoingValues.isEmpty()) -> incomingValues.first()
+                (incomingValues.isEmpty() && outgoingValues.size == 100) -> outgoingValues.first(100)
+                (incomingValues.size == 100 && outgoingValues.isEmpty()) -> incomingValues.first(100)
                 else -> null
             }
         }
